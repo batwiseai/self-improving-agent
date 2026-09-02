@@ -17,8 +17,8 @@ first, Claude Code / Codex / Copilot second. A fork brought into the org for eva
 
 | | |
 |---|---|
-| **Status** | Experimental — no Batwise commit has ever landed. Forked 2026-05-18, still at upstream commit `109f3ff` (2026-04-16); as of 2026-09-01 it is 0 ahead and 18 behind `pskoett/self-improving-agent`. |
-| **Owner** | Frank — he runs the OpenClaw agent command center this skill targets |
+| **Status** | Experimental — no Batwise code change has ever landed. Forked 2026-05-18 at upstream commit `109f3ff` (2026-04-16); as of 2026-09-01 the only commit of our own is this README and the fork is 18 behind `pskoett/self-improving-agent`. |
+| **Owner** | Sebastian Brain (CEO) — operator of Frank, the OpenClaw agent this skill targets ([`frank-agent`](https://github.com/batwiseai/frank-agent)) |
 | **Environments** | None. Nothing is built or deployed; the skill is copied into an agent workspace. |
 | **Linear** | No dedicated project or master issue. Track work in team **Batwise** (key `BT`). |
 | **Related repos** | [`batwiseai/frank-agent`](https://github.com/batwiseai/frank-agent) — the OpenClaw command center that consumes skills like this one · [`batwiseai/batwise-marketplace`](https://github.com/batwiseai/batwise-marketplace) — the `batwise-core` plugin marketplace, a different distribution channel |
@@ -33,7 +33,7 @@ first, Claude Code / Codex / Copilot second. A fork brought into the org for eva
 
 | Need | What | Who grants it |
 |---|---|---|
-| OpenClaw | a working install with a workspace at `~/.openclaw/` | Frank |
+| OpenClaw | a working install with a workspace at `~/.openclaw/` | Sebastian Brain |
 | Bash | the hook helpers are `.sh` scripts | — |
 
 ### Install
@@ -53,7 +53,8 @@ openclaw hooks enable self-improvement
 ```
 
 On Claude Code or Codex instead, wire `scripts/activator.sh` to `UserPromptSubmit` in `.claude/settings.json`
-as described in [`references/hooks-setup.md`](references/hooks-setup.md).
+as described in [`references/hooks-setup.md`](references/hooks-setup.md) — its examples assume the folder is
+named `skills/self-improvement`; point the `command` at wherever you cloned.
 
 ### Verify
 
@@ -92,16 +93,9 @@ the `batwise-core` marketplace or skillman.
 
 ## What this repo is NOT
 
-- **Not Batwise-authored** — every commit is upstream's.
+- **Not Batwise-authored** — every commit except this README is upstream's.
 - **Not a maintained mirror** — 18 commits behind upstream (2026-09-01), which has since restructured the skill into a subfolder and added CI.
 - **Not part of the Batwise skill channels** — own skills ship from `batwise-core`, third-party ones through skillman; nor is it what `batwise-app` uses for self-improvement (that is `.claude/memory/` plus the `codify` skill).
-
-## Contributing & support
-
-Work is tracked in Linear team **Batwise** (key `BT`); commits follow `type(scope): description [BT-XXXX]`.
-`master` is the only branch, so PRs target `master`. Prefer sending fixes upstream to
-[`pskoett/self-improving-agent`](https://github.com/pskoett/self-improving-agent) and re-syncing this fork over
-diverging from it. Ask Frank (OpenClaw host) or Gary Velasquez (tech lead) in Slack.
 
 ## Attribution
 
@@ -112,9 +106,16 @@ Remade for OpenClaw from the original repo:
 
 This repository is a GitHub fork of [`pskoett/self-improving-agent`](https://github.com/pskoett/self-improving-agent).
 
+## Contributing & support
+
+Work is tracked in Linear team **Batwise** (key `BT`); commits follow `type(scope): description [BT-XXXX]`.
+`master` is the only branch, so PRs target `master`. Prefer sending fixes upstream to
+[`pskoett/self-improving-agent`](https://github.com/pskoett/self-improving-agent) and re-syncing this fork over
+diverging from it. Ask Sebastian Brain (Frank's operator) or Gary Velasquez (CTO) in Slack.
+
 ## License
 
-No licence is granted. Neither this fork nor its upstream ships a `LICENSE` file or declares a licence on
+No license is granted. Neither this fork nor its upstream ships a `LICENSE` file or declares a license on
 GitHub, so copyright stays with the upstream author and default all-rights-reserved terms apply. The Batwise
 proprietary notice does **not** apply to this code, and the Attribution section above must stay intact. Ask
 Gary Velasquez before reusing or redistributing any of it inside a Batwise product.
