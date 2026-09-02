@@ -1,0 +1,46 @@
+# Canonical .gitattributes — force LF for all text files (prevents CRLF drift on Windows
+# checkouts, which breaks Biome). Installed by /fix-line-endings. Travels with the repo and
+# overrides every dev's core.autocrlf, so no per-machine git config is needed.
+* text=auto eol=lf
+
+# Common text extensions pinned explicitly (belt and braces over text=auto detection)
+*.ts text eol=lf
+*.tsx text eol=lf
+*.js text eol=lf
+*.jsx text eol=lf
+*.mjs text eol=lf
+*.cjs text eol=lf
+*.json text eol=lf
+*.md text eol=lf
+*.css text eol=lf
+*.html text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+*.sh text eol=lf
+*.sql text eol=lf
+*.prisma text eol=lf
+*.toml text eol=lf
+*.graphql text eol=lf
+*.svg text eol=lf
+
+# Windows cmd.exe scripts are the ONE exception — they need CRLF to run reliably
+# (PowerShell .ps1 is fine with LF)
+*.bat text eol=crlf
+*.cmd text eol=crlf
+
+# Binary files — never convert
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.webp binary
+*.avif binary
+*.ico binary
+*.pdf binary
+*.woff binary
+*.woff2 binary
+*.ttf binary
+*.eot binary
+
+# Lock file — hide from diffs, mark as generated
+pnpm-lock.yaml -diff linguist-generated=true
